@@ -1,0 +1,14 @@
+{
+    "name": "test_mern",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "ws": "^7.4.2"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Wagner Alexandre",
+    "license": "ISC"
+  }
