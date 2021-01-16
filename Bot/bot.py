@@ -15,6 +15,13 @@ def on_error(ws, error):
 
 def on_message(ws, message):
     print('received message:', message)
+    json_message = json.loads(message)
+    print(json_message)
+    candle = json_message['k']
+    close = candle['x']
+    is_close_candle = candle['c']
+    if is_close_candle:
+        print("candle closed at {}".format(close))
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
