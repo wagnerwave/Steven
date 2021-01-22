@@ -1,2 +1,3 @@
 # Git ignore, ignore files
 Bot/config.py
+Bot/__pycache__
