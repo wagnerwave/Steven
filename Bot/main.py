@@ -35,9 +35,9 @@ def parsing_period(arg):
 
 def parsing_symbol(arg):
     if (arg == "BTC" or arg == "btc"):
-        return "BTCUSD"
+        return "BTC"
     elif (arg == "ETH" or arg == "eth"):
-        return "ETHUSD"
+        return "ETH"
     elif (arg == "XMR" or arg == "xmr"):
         return "XMR"
     else:
