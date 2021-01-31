@@ -157,6 +157,7 @@ class Bot:
                 #print("##################")
                 #self._choice(ret_value_rsi ,ret_value_bollinger)
                 self._strategie_bollinger(ret_value_bollinger)
+                Log_status(self._client)
                 print("##################")
 
     def Start(self):
