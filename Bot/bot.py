@@ -70,7 +70,7 @@ class Bot:
 
     def _strategie_rsi(self, ret_value_rsi):
         rsi_val = ret_value_rsi
-        if (rsi_val == 1)
+        if (rsi_val == 1):
             if self._position == False:
                 Log_buy(self._tradeSymbol, self._tradeQuatity)
                 buy_success = self.__buy(self._tradeSymbol, self._tradeQuatity)
@@ -81,7 +81,7 @@ class Bot:
                     Log_big_error()
             else:
                 Log_nothing_to_do()
-        elif (rsi_val == -1)
+        elif (rsi_val == -1):
             if self._position == True:
                 Log_sell(self._tradeSymbol, self._tradeQuatity)
                 sell_success = self.__sell(self._tradeSymbol, self._tradeQuatity)
@@ -97,7 +97,7 @@ class Bot:
 
     def _strategie_bollinger(self, ret_value_bollinger):
         bollinger = ret_value_bollinger
-        if (rsi_val == 1)
+        if (bollinger == 1):
             if self._position == False:
                 Log_buy(self._tradeSymbol, self._tradeQuatity)
                 buy_success = self.__buy(self._tradeSymbol, self._tradeQuatity)
@@ -108,7 +108,7 @@ class Bot:
                     Log_big_error()
             else:
                 Log_nothing_to_do()
-        elif (rsi_val == -1)
+        elif (bollinger == -1):
             if self._position == True:
                 Log_sell(self._tradeSymbol, self._tradeQuatity)
                 sell_success = self.__sell(self._tradeSymbol, self._tradeQuatity)
