@@ -1,9 +1,7 @@
 version: '3'
 services: 
-  server:
-    build: ./server/
-    image: "node_trade"
+  trading_environnement:
+    build: ./Bot/
+    image: "trade_env"
     container_name: "trading_bot_server"
-    ports: 
-      - "3000:3000"
     restart: always
