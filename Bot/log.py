@@ -17,8 +17,11 @@ def Log_status(client):
     ETH = client.get_asset_balance(asset='ETH')
     USDC = client.get_asset_balance(asset='USDC')
     XMR = client.get_asset_balance(asset='XMR')
-    print("[{}] CRYPTO STATUS : ".format((str(datetime.datetime.now())))
+    print("[{}] CRYPTO STATUS : ".format((str(datetime.datetime.now()))))
     print("\t\t Bitcoin [BTC] : {}".format(BTC))
     print("\t\t Etherium [ETH]: {}".format(ETH))
     print("\t\t USDC [$$$] : {}".format(USDC))
     print("\t\t XMR [Monero] : {}".format(XMR))
+
+def Log_candle_close(candle_price_close, symbol):
+    print("[{}] {} candle close : {}".format((str(datetime.datetime.now())), symbol, candle_price_close))
