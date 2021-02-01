@@ -9,7 +9,11 @@ def Log_sell(symbol, quantity):
     print("[{}}] STEVEN : Sell {} For {} quantities...".format((str(datetime.datetime.now())), symbol, quantity))
 
 def Log_big_error():
-    print("[{}] BIG ERROR: cannot sell !!!")
+    print("[{}] BIG ERROR: cannot sell !!!".format((str(datetime.datetime.now()))))
+    exit(1) 
+
+def Log_socket_error():
+    print("[{}] ERROR: socket error.".format((str(datetime.datetime.now()))))
     exit(1) 
 
 def Log_status(client):
