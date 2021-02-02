@@ -7,7 +7,7 @@ from rsi import RSI_strat, RSI_OVERBOUGHT, RSI_OVERSOLD
 from bollinger import bollinger_strat
 from config import API_KEY, API_SECRET_KEY
 
-import websocket, json, pprint, numpy, math
+import json, pprint, numpy, math
 import datetime
 
 class Bot:

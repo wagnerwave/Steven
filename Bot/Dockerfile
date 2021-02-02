@@ -13,6 +13,5 @@ COPY ./ ./
 RUN pip3 install python-binance
 RUN pip3 install numpy
 RUN pip3 install pprintpp
-RUN pip3 install websocket
 
 CMD [ "python3", "main.py" ]
