@@ -11,8 +11,9 @@ python3 main.py [Period] [Symbol] [Quantity]
 
 Exemple : python3 main.py short BTC 0.001
 
-Period : Short - Medium - Long
+Period : Short - Day - Medium - Long
          Short : 1 hour
+         Day : 1 day
          Medium : 1 week
          Long : 1 mouth
 
