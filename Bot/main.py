@@ -8,7 +8,7 @@ def Usage():
     print()
     print("Exemple : python3 main.py short BTC 0.001")
     print()
-    print("Period : Short - Medium - Long")
+    print("Period : Short - Day - Medium - Long")
     print("\t Short : 1 hour")
     print("\t Day : 1 day")
     print("\t Medium : 1 week")
