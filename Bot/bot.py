@@ -17,7 +17,11 @@ class Bot:
         self._pair_trade = init_pair_trade(self._tradeSymbol)
         self._period = init_period(period)
         self._position = False
-        self._client = Client(API_KEY, API_SECRET_KEY, tld='us')
+        try:
+            self._client = Client(API_KEY, API_SECRET_KEY, tld='us')
+        except:
+            print("Error: Cannot connect client (check your API KEY)")
+            exit(1)
         self._closes = []
         self._rsiPeriod = 14
         self._socket = BinanceSocketManager(self._client)

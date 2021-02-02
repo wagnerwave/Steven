@@ -10,6 +10,7 @@ def Usage():
     print()
     print("Period : Short - Medium - Long")
     print("\t Short : 1 hour")
+    print("\t Day : 1 day")
     print("\t Medium : 1 week")
     print("\t Long : 1 mouth")
     print()
@@ -29,6 +30,8 @@ def parsing_period(arg):
         return "medium"
     elif (arg == "Long" or arg == "long" or arg == "LONG" or arg == 'L' or arg == 'l'):
         return "long"
+    elif (arg == "Day" or arg == "day" or arg == "DAY" or arg == "D" or arg == 'd')
+        return "day"
     else:
         Usage()
         exit(1)
