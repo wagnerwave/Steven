@@ -1,5 +1,5 @@
 def init_period(period):
-    if (period != "short" and period != "medium" and period != "long"):
+    if (period != "short" and period != "medium" and period != "long" and period != "day"):
         print("Error: {} period is not allowed...".format(period))
         exit(1)
     else :
@@ -10,7 +10,7 @@ def init_period(period):
         elif (period == "long"):
             return "1m"
         elif (period == "day"):
-            retrun "1d"
+            return "1d"
         else:
             print("Error: cannot find the right socket...")
             exit(1)
