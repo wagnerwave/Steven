@@ -30,7 +30,7 @@ def parsing_period(arg):
         return "medium"
     elif (arg == "Long" or arg == "long" or arg == "LONG" or arg == 'L' or arg == 'l'):
         return "long"
-    elif (arg == "Day" or arg == "day" or arg == "DAY" or arg == "D" or arg == 'd')
+    elif (arg == "Day" or arg == "day" or arg == "DAY" or arg == "D" or arg == 'd'):
         return "day"
     else:
         Usage()
