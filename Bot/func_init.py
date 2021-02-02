@@ -9,7 +9,7 @@ def init_period(period):
             return "1w"
         elif (period == "long"):
             return "1m"
-        elif (period == "day")
+        elif (period == "day"):
             retrun "1d"
         else:
             print("Error: cannot find the right socket...")
