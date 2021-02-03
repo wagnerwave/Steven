@@ -3,6 +3,9 @@ import datetime
 def Log_nothing_to_do():
     print("[{}] STEVEN : Nothing to do...".format((str(datetime.datetime.now()))))
 
+def Log_start():
+    print("[{}] Start server...".format((str(datetime.datetime.now()))))
+
 def Log_buy(symbol, quantity):
     print("[{}}] STEVEN : Buy {} For {} quantities...".format((str(datetime.datetime.now())), symbol, quantity))
 

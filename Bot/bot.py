@@ -174,6 +174,7 @@ class Bot:
                     print("##################")
 
     def Start(self):
+        Log_start()
         self._connection_test()
         self._socket.start_kline_socket(self._pair_trade, self._process_message, interval=self._period)
         self._socket.start()

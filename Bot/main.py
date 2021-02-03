@@ -59,11 +59,17 @@ def parsing_quantity(arg):
 
 if __name__ == "__main__":
     if (len(sys.argv) == 4):
-        period = parsing_period(sys.argv[1])
-        symbol = parsing_symbol(sys.argv[2])
-        quantity = parsing_quantity(sys.argv[3])
-        Steven = Bot(period=period, symbol=symbol, quatity=quantity)
-        Steven.Start()
+        try:
+            period = parsing_period(sys.argv[1])
+            symbol = parsing_symbol(sys.argv[2])
+            quantity = parsing_quantity(sys.argv[3])
+            Steven = Bot(period=period, symbol=symbol, quatity=quantity)
+            Steven.Start()
+        except KeyboardInterrupt:
+            print('\n[*] Aborted')
+            exit(0)
+        except Exception as e:
+            print('[!] ERROR: ' + str(e))
     else:
         Usage()
         exit(0)
