@@ -146,7 +146,7 @@ class Bot:
             Log_socket_error()
         else:            
             json_message = message
-            #pprint.pprint(json_message) # 
+            #pprint.pprint(json_message) #  
             candle = json_message['k']
             candle_price_close = candle['c']
             close = candle['x']

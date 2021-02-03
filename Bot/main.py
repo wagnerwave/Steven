@@ -8,7 +8,8 @@ def Usage():
     print()
     print("Exemple : python3 main.py short BTC 0.001")
     print()
-    print("Period : Short - Day - Medium - Long")
+    print("Period : VeryShort - Short - Day - Medium - Long")
+    print("\t VeryShort : 15min")
     print("\t Short : 1 hour")
     print("\t Day : 1 day")
     print("\t Medium : 1 week")
@@ -26,6 +27,8 @@ def Usage():
 def parsing_period(arg):
     if (arg == "Short" or arg == "short" or arg == "SHORT" or arg == 'S' or arg == 's'):
         return "short"
+    elif (arg == "VeryShort" or arg == "veryshort" or arg == "VS" or arg == "vs"):
+        return "veryshort"
     elif (arg == "Medium" or arg == "medium" or arg == "MEDIUM" or arg == 'M' or arg == 'm'):
         return "medium"
     elif (arg == "Long" or arg == "long" or arg == "LONG" or arg == 'L' or arg == 'l'):
