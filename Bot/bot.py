@@ -31,12 +31,13 @@ class Bot:
         if self._client.ping() == False:
             print("Error: ping client doesn't work.")
             exit(1)
-        if status['status'] != 0:
-            print("Error: System maintenance.")
-            exit(1)
-        print("#####################################")
-        print("SERVER : Connection is okay and server status is", status['msg'])
-        print("#####################################")
+            if status['status'] != 0:
+                print("Error: System maintenance.")
+                exit(1)
+        else :
+            print("#####################################")
+            print("SERVER : Connection is okay and server status is", status['msg'])
+            print("#####################################")
 
     def __buy(self):
         try:
@@ -141,40 +142,37 @@ class Bot:
             Log_nothing_to_do()
 
     def _process_message(self, message):
-        if message['e'] == 'error':
-            self._socket.close()
-            Log_socket_error()
-        else:            
-            json_message = message
-            #pprint.pprint(json_message) #  
-            candle = json_message['k']
-            candle_price_close = candle['c']
-            close = candle['x']
-            if close:
-                Log_candle_close(candle_price_close, self._tradeSymbol)
-                self._closes.append(float(candle_price_close))
-                print(len(self._closes))
-                if len(self._closes) > self._rsiPeriod:
-                    np_closes = numpy.array(closes)
-                    rsi = talib.RSI(np_closes, RSI_PERIOD)
-                    print("##################")            
-                    #print(rsi)
-                    last_rsi = rsi[-1]
-                    print("the current rsi is {}".format(last_rsi))
-                    ret_value_rsi = RSI_strat(last_rsi, self._position)
-                    ret_value_bollinger = bollinger_strat(closes, len(closes))
-                    #print("##################")
-                    #print("deja achete {}".format(self._position))
-                    print("ret_value_rsi ->", ret_value_rsi)
-                    print("ret_value_bollinger ->", ret_value_bollinger)
-                    #print("##################")
-                    #self._choice(ret_value_rsi ,ret_value_bollinger)
-                    self._strategie_bollinger(ret_value_bollinger)
-                    Log_status(self._client)
-                    print("##################")
+        json_message = message
+        print.pprint(json_message) #  
+        candle = json_message['k']
+        candle_price_close = candle['c']
+        close = candle['x']
+        if close:
+            Log_candle_close(candle_price_close, self._tradeSymbol)
+            self._closes.append(float(candle_price_close))
+            print(len(self._closes))
+            if len(self._closes) > self._rsiPeriod:
+                np_closes = numpy.array(closes)
+                rsi = talib.RSI(np_closes, RSI_PERIOD)
+                print("##################")
+                #print(rsi)
+                last_rsi = rsi[-1]
+                print("the current rsi is {}".format(last_rsi))
+                ret_value_rsi = RSI_strat(last_rsi, self._position)
+                ret_value_bollinger = bollinger_strat(closes, len(closes))
+                #print("##################")
+                #print("deja achete {}".format(self._position))
+                print("ret_value_rsi ->", ret_value_rsi)
+                print("ret_value_bollinger ->", ret_value_bollinger)
+                #print("##################")
+                #self._choice(ret_value_rsi ,ret_value_bollinger)
+                self._strategie_bollinger(ret_value_bollinger)
+                Log_status(self._client)
+                print("##################")
 
     def Start(self):
         Log_start()
         self._connection_test()
-        self._socket.start_kline_socket(self._pair_trade, self._process_message, interval=self._period)
+        Log_status(client=self._client)
+        self._socket.start_kline_socket(symbol=self._pair_trade, callback=self._process_message, interval=self._period)
         self._socket.start()

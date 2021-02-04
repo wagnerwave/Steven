@@ -6,7 +6,7 @@ def init_period(period):
         if (period == "short"):
             return "1h"
         elif (period == "veryshort"):
-            return "15min"
+            return "1min"
         elif (period == "medium"):
             return "1w"
         elif (period == "long"):
