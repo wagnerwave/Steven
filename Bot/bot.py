@@ -141,9 +141,9 @@ class Bot:
         else:
             Log_nothing_to_do()
 
-    def _process_message(self, message):
-        json_message = message
-        print.pprint(json_message) #  
+    def _process_message(self, msg):
+        json_message = msg
+        pprint.pprint(json_message) #
         candle = json_message['k']
         candle_price_close = candle['c']
         close = candle['x']
@@ -174,5 +174,7 @@ class Bot:
         Log_start()
         self._connection_test()
         Log_status(client=self._client)
+        Log_parameter(symbol=self._pair_trade ,quantity=self._tradeQuatity, period=self._period)
         self._socket.start_kline_socket(symbol=self._pair_trade, callback=self._process_message, interval=self._period)
+        #self._socket.start_kline_socket(symbol=self._pair_trade, callback=self._process_message, interval=self._period)
         self._socket.start()

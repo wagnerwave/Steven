@@ -1,6 +1,7 @@
 from binance.client import Client
+from config import API_KEY, API_SECRET_KEY
 
-client = Client('API_KEY', 'SECRET_KEY')
+client = Client(API_KEY, API_SECRET_KEY)
 
 def getWalletBTC():
     BTC = client.get_asset_balance(asset='BTC')
