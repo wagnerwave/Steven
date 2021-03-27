@@ -4,7 +4,7 @@ import sys
 from bot import Bot
 
 def Usage():
-    print("python3 main.py [Period] [Symbol] [Quantity] [TradeAlgorithm}")
+    print("python3 main.py [Period] [Symbol] [Quantity] [TradeAlgorithm]")
     print()
     print("Exemple : python3 main.py short BTC 0.001 RSI")
     print()
