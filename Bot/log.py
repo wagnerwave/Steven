@@ -33,3 +33,6 @@ def Log_status(client):
 
 def Log_candle_close(candle_price_close, symbol):
     print("[{}] {} candle close : {}".format((str(datetime.datetime.now())), symbol, candle_price_close))
+
+def Log_error(error):
+    print("[{}] Error: {}".format((str(datetime.datetime.now())), error))

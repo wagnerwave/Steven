@@ -4,9 +4,9 @@ import sys
 from bot import Bot
 
 def Usage():
-    print("python3 main.py [Period] [Symbol] [Quantity]")
+    print("python3 main.py [Period] [Symbol] [Quantity] [TradeAlgorithm}")
     print()
-    print("Exemple : python3 main.py short BTC 0.001")
+    print("Exemple : python3 main.py short BTC 0.001 RSI")
     print()
     print("Period : VeryShort - Short - Day - Medium - Long")
     print("\t VeryShort : 15min")
@@ -19,6 +19,11 @@ def Usage():
     print("\t BTC : Bitcoin")
     print("\t ETH : Etherium ")
     print("\t XMR : Monero")
+    print()
+    print("Trading Algorithm: BOLRSI - RSI - BOL")
+    print("\t BOLRSI : bolinger and rsi")
+    print("\t RSI : Relative Strength Index ")
+    print("\t BOL : bolinger algorithm")
     print()
     print("Quatity : the quantities of money for your trading bot")
     print("\t Exemple : 0.650")
@@ -50,6 +55,17 @@ def parsing_symbol(arg):
         Usage()
         exit(1)
 
+def parsing_trade_algorithme(arg):
+    if (arg == "BOLRSI" or arg == "RSIBOL"):
+        return arg
+    elif (arg == "RSI"):
+        return arg
+    elif (arg == "BOL"):
+        return arg
+    else:
+        Usage()
+        exit(1)
+
 def parsing_quantity(arg):
     try:
         return float(arg)
@@ -58,12 +74,13 @@ def parsing_quantity(arg):
         exit(1)
 
 if __name__ == "__main__":
-    if (len(sys.argv) == 4):
+    if (len(sys.argv) == 5):
         try:
             period = parsing_period(sys.argv[1])
             symbol = parsing_symbol(sys.argv[2])
             quantity = parsing_quantity(sys.argv[3])
-            Steven = Bot(period=period, symbol=symbol, quatity=quantity)
+            tradeAlgo = parsing_trade_algorithme(sys.argv[4])
+            Steven = Bot(period=period, symbol=symbol, quatity=quantity, tradeAlgo=tradeAlgo)
             Steven.Start()
         except KeyboardInterrupt:
             print('\n[*] Aborted')

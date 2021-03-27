@@ -44,3 +44,13 @@ def init_pair_trade(symbol):
     else:
         print("Error: cannot find the right pair for trade...")
         exit(1)
+
+def init_tradeAlgorithm(tradeAlgo):
+    if (tradeAlgo == "RSI"):
+        return "rsi"
+    elif (tradeAlgo == "BOL"):
+        return "bolinger"
+    elif (tradeAlgo == "RSIBOL" or tradeAlgo == "BOLRSI"):
+        return "rsi_bolinger"
+    else:
+        return "error"
