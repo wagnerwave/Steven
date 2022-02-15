@@ -1,5 +1,5 @@
 # Steven
-Steven my trading assistant.
+Prototype of a trading bot.
 
 For deploy the environnment : 
 ```
